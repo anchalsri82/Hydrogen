@@ -1,16 +1,16 @@
 ﻿using Hydrogen.Infra.Common;
 using Prism.Regions;
 
-namespace Hydrogen.Modules.HelpModule.ViewModels
+namespace Hydrogen.Modules.AboutModule.ViewModels
 {
-    public class HelpViewModel : ViewModelBase
+    public class AboutViewModel : ViewModelBase
     {
         private readonly IRegionManager _regionManager;
 
-        public HelpViewModel(IRegionManager regionManager)
+        public AboutViewModel(IRegionManager regionManager)
         {
             _regionManager = regionManager;
-            Title = "Help";
+            Title = "About";
         }
     }
 }

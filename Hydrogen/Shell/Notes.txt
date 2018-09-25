@@ -1,0 +1,2 @@
+﻿https://www.codeproject.com/Articles/874005/WPF-Window-allows-tabbing-by-drag-and-drop
+https://www.codeproject.com/Articles/96908/Hierarchical-Menu-in-WPF
