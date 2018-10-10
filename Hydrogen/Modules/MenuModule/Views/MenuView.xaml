@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <HierarchicalDataTemplate DataType="{x:Type vm:MenuItemViewModel}">
+        <HierarchicalDataTemplate DataType="{x:Type vm:MenuItemViewModel}" ItemsSource="{Binding ChildMenuItems}">
             <MenuItem Header="{Binding Path=Header}" ItemsSource="{Binding ChildMenuItems}">
                 <MenuItem.ItemContainerStyle>
                     <Style TargetType="{x:Type MenuItem}">
@@ -30,7 +30,16 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel>
-            <Menu ItemsSource="{Binding Path=MenuItems}">             
+            <Menu ItemsSource="{Binding Path=ChildMenuItems}">
+                <Menu.Resources>
+                    <Style x:Key="ThemeMenuItemStyle" TargetType="MenuItem">
+                        <Setter Property="Header" Value="{Binding Name}"></Setter>
+                        <Setter Property="Command" Value="{Binding ActivateCommand}"/>
+                        <Setter Property="IsChecked" Value="{Binding IsActive}" />
+                        <Setter Property="IsCheckable" Value="True"/>
+                        <Setter Property="ItemsSource" Value="{Binding ChildMenuItems}"/>
+                    </Style>
+                </Menu.Resources>
             </Menu>
         </StackPanel>
     </Grid>

@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Hydrogen.Infra.Service;
+using Hydrogen.Infra.Service.Events;
 using Hydrogen.Modules.HelpModule.Views;
 using Prism.Modularity;
 using Prism.Regions;
@@ -25,7 +26,7 @@ namespace Hydrogen.Modules.HelpModule
             var builder = new ContainerBuilder();
             builder.RegisterType<HelpView>().Named<object>(HelpView).SingleInstance();
             builder.Update(_container);
-            _menuService.Register(new Infra.Service.Events.MenuItemArgs { NavigationPath = HelpView, Path = HelpMenuPath });
+            _menuService.Register(new MenuItemArgs { NavigationPath = HelpView, Path = HelpMenuPath });
         }
     }
 }

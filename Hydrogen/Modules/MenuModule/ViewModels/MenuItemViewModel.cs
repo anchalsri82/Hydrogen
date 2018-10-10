@@ -17,9 +17,13 @@ namespace Hydrogen.Modules.MenuModule.ViewModels
         {
             ParentViewModel = parentViewModel;
             _childMenuItems = new ObservableCollection<MenuItemViewModel>();
-            _menuItemCommand = new DelegateCommand(action);
+            if (action != null)
+                _menuItemCommand = new DelegateCommand(action, CanExecute);
         }
-
+        private bool CanExecute()
+        {
+            return true;
+        }
         private ObservableCollection<MenuItemViewModel> _childMenuItems;
         /// <summary>
         /// Gets the child menu items.
