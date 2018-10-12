@@ -7,40 +7,31 @@
              xmlns:vm="clr-namespace:Hydrogen.Modules.MenuModule.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <UserControl.Resources>
-        <HierarchicalDataTemplate DataType="{x:Type vm:MenuItemViewModel}" ItemsSource="{Binding ChildMenuItems}">
-            <MenuItem Header="{Binding Path=Header}" ItemsSource="{Binding ChildMenuItems}">
-                <MenuItem.ItemContainerStyle>
-                    <Style TargetType="{x:Type MenuItem}">
-                        <Setter Property="Command" Value="{Binding MenuItemCommand}" />
-                        <Setter Property="CommandParameter" Value="{Binding }" />
-                    </Style>
-                </MenuItem.ItemContainerStyle>
-            </MenuItem>
-        </HierarchicalDataTemplate>
-        <DataTemplate DataType="{x:Type vm:SeparatorViewModel}">
-            <Separator>
-                <Separator.Template>
-                    <ControlTemplate>
-                        <Line X1="0" X2="1" Stroke="Black" StrokeThickness="1" Stretch="Fill"/>
-                    </ControlTemplate>
-                </Separator.Template>
-            </Separator>
-        </DataTemplate>
-    </UserControl.Resources>
-    <Grid>
-        <StackPanel>
-            <Menu ItemsSource="{Binding Path=ChildMenuItems}">
-                <Menu.Resources>
-                    <Style x:Key="ThemeMenuItemStyle" TargetType="MenuItem">
-                        <Setter Property="Header" Value="{Binding Name}"></Setter>
-                        <Setter Property="Command" Value="{Binding ActivateCommand}"/>
-                        <Setter Property="IsChecked" Value="{Binding IsActive}" />
-                        <Setter Property="IsCheckable" Value="True"/>
-                        <Setter Property="ItemsSource" Value="{Binding ChildMenuItems}"/>
-                    </Style>
-                </Menu.Resources>
-            </Menu>
-        </StackPanel>
-    </Grid>
+    <Menu ItemsSource="{Binding Path=ChildMenuItems}">
+        <Menu.ItemContainerStyle>
+            <Style>
+                <Setter Property="MenuItem.Header" Value="{Binding Path=Header}" />
+                <Setter Property="MenuItem.ItemsSource" Value="{Binding Path=ChildMenuItems}" />
+                <Setter Property="MenuItem.Icon" Value="{Binding Path=Icon}" />
+                <Setter Property="MenuItem.IsCheckable" Value="{Binding Path=IsCheckable}" />
+                <Setter Property="MenuItem.IsChecked" Value="{Binding Path=IsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+                <Setter Property="MenuItem.Command" Value="{Binding Path=Command}" />
+                <!--<Setter Property="MenuItem.CommandParameter" Value="{Binding Path=IsChecked}"/>-->
+                <Setter Property="MenuItem.CommandParameter" Value="{Binding Path=.}"/>
+                <Setter Property="MenuItem.InputGestureText" Value="{Binding Path=InputGestureText}"/>
+                <Setter Property="MenuItem.ToolTip" Value="{Binding Path=ToolTip}" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsSeparator}" Value="true">
+                        <Setter Property="MenuItem.Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type MenuItem}">
+                                    <Separator Style="{DynamicResource {x:Static MenuItem.SeparatorStyleKey}}" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Menu.ItemContainerStyle>
+    </Menu>
 </UserControl>

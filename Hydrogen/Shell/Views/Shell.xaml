@@ -43,7 +43,6 @@
             </Setter>
         </Style>
     </Window.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -51,11 +50,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" x:Name="MenuContent" prism:RegionManager.RegionName="MenuRegion"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" >
-            <Button Command="{Binding NavigateCommand}" CommandParameter="HelpView">Navigate HelpView</Button>
-            <Button Command="{Binding NavigateCommand}" CommandParameter="AboutView">Navigate About</Button>
-        </StackPanel>
         <TabControl Grid.Row="2" prism:RegionManager.RegionName="{x:Static common:RegionNames.TabRegion}" />
     </Grid>
-
 </Window>

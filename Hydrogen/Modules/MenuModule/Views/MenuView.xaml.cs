@@ -15,7 +15,7 @@ namespace Hydrogen.Modules.MenuModule.Views
         public MenuView(MenuViewModel menuViewModel)
         {
             InitializeComponent();
-            DataContext = menuViewModel;
+            DataContext = menuViewModel.ChildMenuItems;
         }
     }
 }
