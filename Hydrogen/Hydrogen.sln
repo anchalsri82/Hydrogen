@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shell", "Shell\Shell.csproj", "{2DE7DC75-855D-40DD-84E0-A90878C180BF}"
 EndProject
@@ -18,6 +18,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuModule", "Modules\MenuModule\MenuModule.csproj", "{9F4719D8-FEEA-450A-9A3D-92DF36A3C21F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Infra\Service\Service.csproj", "{6C449E60-0189-4EFA-AA81-BF45653B735A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3A80E273-7DF4-4A7B-9E5C-24552A0C6776}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{3490DB71-7ACE-457E-881A-43C3300FF15A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AboutModule", "Tests\Modules\AboutModule\AboutModule.csproj", "{5D87C114-CBC7-4B50-87C1-A93F0F07F584}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +55,10 @@ Global
 		{6C449E60-0189-4EFA-AA81-BF45653B735A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C449E60-0189-4EFA-AA81-BF45653B735A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C449E60-0189-4EFA-AA81-BF45653B735A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D87C114-CBC7-4B50-87C1-A93F0F07F584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D87C114-CBC7-4B50-87C1-A93F0F07F584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D87C114-CBC7-4B50-87C1-A93F0F07F584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D87C114-CBC7-4B50-87C1-A93F0F07F584}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +69,8 @@ Global
 		{3E73F395-675D-4457-9F65-C9DB3C7934A4} = {BDB16AA6-DF2A-48F6-AA5B-365FCC1D5E89}
 		{9F4719D8-FEEA-450A-9A3D-92DF36A3C21F} = {BDB16AA6-DF2A-48F6-AA5B-365FCC1D5E89}
 		{6C449E60-0189-4EFA-AA81-BF45653B735A} = {EC1D5E16-A5CE-49F2-BFF2-CB7FC3EDD1B7}
+		{3490DB71-7ACE-457E-881A-43C3300FF15A} = {3A80E273-7DF4-4A7B-9E5C-24552A0C6776}
+		{5D87C114-CBC7-4B50-87C1-A93F0F07F584} = {3490DB71-7ACE-457E-881A-43C3300FF15A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E018E53-430C-47ED-B33F-CEDDC628987D}

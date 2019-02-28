@@ -2,6 +2,7 @@
 using Hydrogen.Infra.Service;
 using Hydrogen.Infra.Service.Events;
 using Hydrogen.Modules.HelpModule.Views;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
@@ -27,6 +28,14 @@ namespace Hydrogen.Modules.HelpModule
             builder.RegisterType<HelpView>().Named<object>(HelpView).SingleInstance();
             builder.Update(_container);
             _menuService.Register(new MenuItemArgs { NavigationPath = HelpView, Path = HelpMenuPath });
+        }
+
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+        }
+
+        public void OnInitialized(IContainerProvider containerProvider)
+        {
         }
     }
 }

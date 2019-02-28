@@ -2,6 +2,7 @@
 using Hydrogen.Infra.Service;
 using Hydrogen.Infra.Service.Events;
 using Hydrogen.Modules.AboutModule.Views;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
@@ -12,8 +13,8 @@ namespace Hydrogen.Modules.AboutModule
         private readonly IRegionManager _regionManager;
         private readonly IContainer _container;
         private readonly IMenuService _menuService;
-        private const string AboutView = "AboutView";
-        private const string AboutMenuPath = "Help>About";
+        internal const string AboutView = "AboutView";
+        internal const string AboutMenuPath = "Help>About";
 
         public ModuleInit(IRegionManager regionManager, IContainer container, IMenuService menuService)
         {
@@ -24,10 +25,20 @@ namespace Hydrogen.Modules.AboutModule
 
         public void Initialize()
         {
-            var builder = new ContainerBuilder();
-            builder.RegisterType<AboutView>().Named<object>("AboutView").SingleInstance();
-            builder.Update(_container);
+            //var builder = new ContainerBuilder();
+            //builder.RegisterType<AboutView>().Named<object>("AboutView").SingleInstance();
+            //builder.Update(_container);
             _menuService.Register(new MenuItemArgs { NavigationPath = AboutView, Path = AboutMenuPath });
+            //_menuService.Register(new MenuItemArgs { NavigationPath = AboutView, Path = AboutMenuPath });
+        }
+
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<AboutView>("AboutView");
+        }
+
+        public void OnInitialized(IContainerProvider containerProvider)
+        {
         }
     }
 }
